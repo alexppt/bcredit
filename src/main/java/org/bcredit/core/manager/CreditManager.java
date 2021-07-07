@@ -21,15 +21,11 @@ public class CreditManager {
         return creditService.query(id, false);
     }
 
-    public void addCreditScore() {
-
+    public List<CreditItem> queryCreditScore(String id) {
+        return creditService.query(id, true);
     }
 
-    public void queryCreditScore() {
-
-    }
-
-    public void calculateScore() {
+    public void calculateScore(String id) {
 
     }
 }

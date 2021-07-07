@@ -22,6 +22,7 @@ class CoreApplicationTests {
         creditItem.setType(2);
         creditItem.setAmount(1000d);
         creditItem.setIsOverdue(false);
+        creditItem.setTimestamp(System.currentTimeMillis());
 
         creditService.createCreditItem(creditItem);
     }

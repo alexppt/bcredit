@@ -37,4 +37,9 @@ public class CreditController {
 
         return "success";
     }
+
+    @RequestMapping(value = "queryCreditScoreById", method = RequestMethod.GET)
+    public List<CreditItem> queryCreditScoreById(String id) {
+        return creditManager.queryCreditScore(id);
+    }
 }

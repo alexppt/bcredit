@@ -11,10 +11,10 @@ import org.bcredit.core.component.credit.CreditItem;
 import org.bcredit.core.factory.BlockchainFactory;
 import org.springframework.stereotype.Service;
 
+import static org.bcredit.core.component.constant.CreditConstant.creditScoreType;
+
 @Service
 public class CreditService {
-
-    private static final Integer creditScoreType = 1;
 
     @Resource
     private BlockchainFactory blockchainFactory;

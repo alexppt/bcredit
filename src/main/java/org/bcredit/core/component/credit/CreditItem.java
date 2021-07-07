@@ -21,4 +21,6 @@ public class CreditItem {
     private Boolean isOverdue;
 
     private Integer score;
+
+    private Long timestamp;
 }
