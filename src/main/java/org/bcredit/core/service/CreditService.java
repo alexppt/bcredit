@@ -2,16 +2,16 @@ package org.bcredit.core.service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import javax.annotation.PostConstruct;
 import javax.annotation.Resource;
 
 import com.google.gson.Gson;
 import org.bcredit.core.component.blockchain.Blockchain;
 import org.bcredit.core.component.credit.CreditItem;
+import org.bcredit.core.component.enumeration.CreditTypeEnum;
 import org.bcredit.core.factory.BlockchainFactory;
 import org.springframework.stereotype.Service;
-
-import static org.bcredit.core.component.constant.CreditConstant.creditScoreType;
 
 @Service
 public class CreditService {
@@ -44,11 +44,11 @@ public class CreditService {
             CreditItem creditItem = gson.fromJson(json, CreditItem.class);
 
             if (isScoreType != null) {
-                if (isScoreType && !creditScoreType.equals(creditItem.getType())) {
+                if (isScoreType && !Objects.equals(CreditTypeEnum.CREDIT_SCORE.getCode(), creditItem.getType())) {
                     continue;
                 }
 
-                if (!isScoreType && creditScoreType.equals(creditItem.getType())) {
+                if (!isScoreType && Objects.equals(CreditTypeEnum.CREDIT_SCORE.getCode(), creditItem.getType())) {
                     continue;
                 }
             }

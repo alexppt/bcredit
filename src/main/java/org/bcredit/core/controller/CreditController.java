@@ -42,4 +42,9 @@ public class CreditController {
     public List<CreditItem> queryCreditScoreById(String id) {
         return creditManager.queryCreditScore(id);
     }
+
+    @RequestMapping(value = "calculateCreditScoreById", method = RequestMethod.POST)
+    public CreditItem calculateCreditScoreById(@RequestBody String id) {
+        return creditManager.calculateCreditScore(id);
+    }
 }

@@ -6,10 +6,9 @@ import javax.annotation.Resource;
 
 import org.bcredit.core.component.credit.Calculator;
 import org.bcredit.core.component.credit.CreditItem;
+import org.bcredit.core.component.enumeration.CreditTypeEnum;
 import org.bcredit.core.factory.CalculatorFactory;
 import org.springframework.stereotype.Service;
-
-import static org.bcredit.core.component.constant.CreditConstant.creditScoreType;
 
 @Service
 public class CalculateService {
@@ -32,7 +31,7 @@ public class CalculateService {
         Integer creditScore = calculator.calculate(creditItems);
         CreditItem creditItem = new CreditItem();
         creditItem.setId(id);
-        creditItem.setType(creditScoreType);
+        creditItem.setType(CreditTypeEnum.CREDIT_SCORE.getCode());
         creditItem.setScore(creditScore);
         creditItem.setTimestamp(System.currentTimeMillis());
         creditService.createCreditItem(creditItem);
