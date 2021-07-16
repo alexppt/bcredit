@@ -3,16 +3,18 @@ package org.bcredit.core.component.credit;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@ToString
 public class CreditItem {
 
     private String id;
 
     /**
-     * 0-credit score, 1-payment order, 2-repay credit card, 3-career information, 4-social relationship
+     * 1-credit score, 2-payment order, 3-repay credit card, 4-career information, 5-social relationship
      */
     private Integer type;
 

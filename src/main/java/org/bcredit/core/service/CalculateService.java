@@ -28,6 +28,11 @@ public class CalculateService {
 
     public CreditItem calculateCreditScore(String id) {
         List<CreditItem> creditItems = creditService.query(id, false);
+
+        if (creditItems == null || creditItems.isEmpty()) {
+            return null;
+        }
+
         Integer creditScore = calculator.calculate(creditItems);
         CreditItem creditItem = new CreditItem();
         creditItem.setId(id);

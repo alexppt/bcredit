@@ -27,6 +27,7 @@ public class CreditService {
     }
 
     public void createCreditItem(CreditItem creditItem) {
+        creditItem.setTimestamp(System.currentTimeMillis());
         Gson gson = new Gson();
         String json = gson.toJson(creditItem);
         blockchain.store(json);

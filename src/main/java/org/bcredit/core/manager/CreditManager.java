@@ -22,11 +22,25 @@ public class CreditManager {
     }
 
     public List<CreditItem> queryCreditFactor(String id) {
-        return creditService.query(id, false);
+        List<CreditItem> creditItems = creditService.query(id, false);
+
+        if (creditItems == null || creditItems.isEmpty()) {
+            return null;
+        }
+
+        creditItems.sort((left, right) -> Long.valueOf(right.getTimestamp() - left.getTimestamp()).intValue());
+        return creditItems;
     }
 
     public List<CreditItem> queryCreditScore(String id) {
-        return creditService.query(id, true);
+        List<CreditItem> creditItems = creditService.query(id, true);
+
+        if (creditItems == null || creditItems.isEmpty()) {
+            return null;
+        }
+
+        creditItems.sort((left, right) -> Long.valueOf(right.getTimestamp() - left.getTimestamp()).intValue());
+        return creditItems;
     }
 
     public CreditItem calculateCreditScore(String id) {
